@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px 0;">
+<div class="hero-section py-5">
     <div class="container">
-        <h1>Galeri Karya Kami</h1>
-        <p>Lihat hasil karya terbaik dari Wildan Tailor</p>
+        <h1>BERBAGAI KREASI RUMAH JAHIT SLAWM</h1>
+        <p>Gallery memuat foto dan video Custom Order Rumah Jahit SLAWM</p>
     </div>
 </div>
 
@@ -18,9 +18,12 @@
             @forelse ($galleries as $gallery)
                 <div class="col-md-4 mb-4">
                     <div class="card border-0 shadow-sm overflow-hidden">
-                        <a href="{{ Storage::url('galleries/' . $gallery->gambar_file) }}" data-lightbox="gallery">
-                            <img src="{{ Storage::url('galleries/' . $gallery->gambar_file) }}" alt="{{ $gallery->judul }}" class="card-img-top" style="height: 250px; object-fit: cover; cursor: pointer; transition: transform 0.3s;">
-                        </a>
+                        <div class="card-media-placeholder" style="height:250px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#f8fafc,#fff); color:#64748b;">
+                            <div class="text-center">
+                                <i class="fas fa-image" style="font-size:2.4rem; opacity:0.9;"></i>
+                                <div class="small mt-2">Media dihapus</div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $gallery->judul }}</h5>
                             <p class="card-text text-muted small">{{ Str::limit($gallery->deskripsi, 80) }}</p>

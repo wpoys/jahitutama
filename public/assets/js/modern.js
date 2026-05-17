@@ -98,9 +98,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            if (href === currentLocation || 
-                (currentLocation === '/' && href === '/') ||
-                currentLocation.includes(href.replace('/', ''))) {
+            if (!href || href === '#') {
+                return;
+            }
+
+            const normalizedHref = href.replace(/^https?:\/\/[^/]+/, '');
+            if (href === currentLocation ||
+                (currentLocation === '/' && normalizedHref === '/') ||
+                currentLocation.includes(normalizedHref.replace('/', ''))) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
